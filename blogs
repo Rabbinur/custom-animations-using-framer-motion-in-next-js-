@@ -1,0 +1,30 @@
+import Button from "./Button";
+import styles from "../../styles/Blog.module.css";
+import SwipSlider from "./SwipSlider";
+import { fadeIn } from "../../constants/animations/variants";
+const Blog = () => {
+  return (
+    <div className=" bg-[#f1f1f1] py-20 ">
+      <div className="container">
+        <motion.div
+          initial={"hidden"}
+          whileInView={"visible"}
+          viewport={{ once: false, amount: 0.6 }}
+        >
+          <motion.div
+            variants={fadeIn("down", 0.2)}
+            className="pb-10 text-center"
+          >
+            {" "}
+            <h1 className="md:bold-40 bold-32">Blogs</h1>
+            <p className="text-[#888] pt-5">- Our Blogs -</p>
+          </motion.div>
+          <motion.div variants={fadeIn("down", 0.4)}>
+            <SwipSlider />
+          </motion.div>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+export default Blog;
